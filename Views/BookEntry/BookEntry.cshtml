@@ -1,0 +1,23 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Entry</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<form>
+    <div class="mainformcontainer">
+
+        <div class="inputwrap" style="justify-content:center ;">
+
+            <div class="submitcontainer">
+                <button asp-controller="BookEntry" asp-action="NewBookEntry" type="submit" class="formbutton">New Book Entry</button>
+            </div>
+
+            <div class="submitcontainer" style="margin-top:2em ;">
+                <button asp-controller="BookEntry" asp-action="OldBookEntry" type="submit" class="formbutton">Old Book Entry</button>
+            </div>
+
+        </div>
+
+    </div>
+</form>

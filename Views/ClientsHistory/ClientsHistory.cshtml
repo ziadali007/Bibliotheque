@@ -1,0 +1,31 @@
+﻿@using System;
+@model IEnumerable<bibliotheque.Models.Operation>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clients History</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<form method="post" asp-controller="ClientsHistory" asp-action="ClientsHistoryView">
+    <div class="inputcontainer">
+        <select class="formselect" name="cat" id="bookselect">
+            <option value="All">All</option>
+            <option value="Borrow">Borrow</option>
+            <option value="Buy">Buy</option>
+            <option value="Return">Return</option>
+            <option value="Buy Online">Buy Online</option>
+
+        </select>
+        <div class="formlabel">Operation Type</div>
+
+
+        <div class="submitcontainer">
+            <input class="formbutton" type="submit" value="OK">
+        </div>
+    </div>
+</form>
+
+
+

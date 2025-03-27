@@ -1,0 +1,76 @@
+﻿@model IEnumerable<bibliotheque.Models.Book>
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>Available Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+@{
+    Layout = null;
+}
+<div style="padding:2em 0em">
+    <div style="display:flex; flex-direction:row; justify-content:flex-end; padding: 1em 4em;">
+        <div>
+            <a class="bot" asp-controller="Book" asp-action="Show" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Go to Books</span>
+            </a>
+            <a class="bot" asp-controller="Book" asp-action="Cart" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Go to cart</span>
+            </a>
+            <a class="bot" asp-controller="Book" asp-action="userHistory" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">User History</span>
+            </a>
+            <a class="bot" asp-controller="Account" asp-action="Logout" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Log-out</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="text-white">Available Books</h1>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card border-primary mb-3" style="max-width: 540px;">
+                        <div class="card-header text-white" style="background-color:red">
+                            <p class="card-text">
+                                <h5 class="card-title">
+                                    @item.book_name
+                                </h5>
+                            </p>
+                        </div>
+                        <img class="card-img-top" style="height:15em; width:10em; align-self:center" src="~/Img/@item.book_pic" />
+                        <div class="card-body">
+                            <p class="card-text">Author: @item.author</p>
+                            <p class="card-text">Price: @item.price</p>
+                            <p class="card-text">Available quantity: @item.quantity</p>
+                            <a asp-action="addtocart" asp-route-id="@item.book_name" class="btn btn-primary">  Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+<style>
+    body {
+        background-color: #F0F8FF;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+
+    .bot {
+        padding: 1em 2em;
+        color: white;
+        margin: 0em 1em;
+        text-decoration: none;
+    }
+
+</style>

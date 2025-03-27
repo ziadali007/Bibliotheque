@@ -1,0 +1,36 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old Book Entry</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<form method="post" asp-action="OldBookEntry" asp-controller="BookEntry">
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+            <div class="inputcontainer">
+                <div class="inputcontainer">
+                    <select class="formselect" name="book_name" id="bookselect">
+                        @foreach (var book in Model)
+                        {
+                            <option value="@book.book_name">@book.book_name</option>
+                        }
+                    </select>
+                    <div class="formlabel">Book Name</div>
+                </div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="number" id="quantity" name="quantity" />
+                <div class="formlabel">Book Quantity</div>
+            </div>
+
+        </div>
+
+
+        <div class="submitcontainer">
+            <input class="formbutton" type="submit" value="OK">
+        </div>
+
+    </div>
+</form>

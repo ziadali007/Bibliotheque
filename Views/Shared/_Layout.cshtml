@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+
+    <div class="pagecontainer">
+        <div class="sidebar">
+            <div class="sidebar-content">
+                <div class="logo">
+                    <a asp-controller="Home" asp-action="Index"><img class="logo-img" src="~/css/logo.png" alt="logo"></a>
+                </div>
+
+                <ul class="lists">
+                    <li class="list">
+                        <a asp-controller="Borrow" asp-action="Borrow" class="nav-link">
+                            <span class="link">Borrow</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a asp-controller="Buy" asp-action="Buy" class="nav-link">
+                            <span class="link">Buy</span>
+                        </a>
+                    </li>
+                    <li class="list">
+                        <a asp-controller="Return" asp-action="Return" class="nav-link">
+                            <span class="link">Return</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="bottom-content">
+                    <ul>
+                        <li class="list">
+                            <a asp-controller="BookEntry" asp-action="BookEntry" class="nav-link">
+                                <span class="link">Book Entry</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a asp-controller="ClientsHistory" asp-action="ClientsHistory" class="nav-link">
+                                <span class="link">Clients History</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a asp-controller="Book" asp-action="Index" class="nav-link">
+                                <span class="link">Book List</span>
+                            </a>
+                        </li>
+                        <li class="list">
+                            <a asp-controller="Account" asp-action="Logout" class="nav-link">
+                                <span class="link">Log-out</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+
+            @RenderBody()
+
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+

@@ -1,0 +1,90 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buy</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<form method="post" asp-action="Buy" asp-controller="Buy">
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+            <div class="inputcontainer">
+                <select class="formselect" name="book_name" id="bookselect">
+                    @foreach (var book in Model)
+                    {
+                       <option value="@book.book_name">@book.book_name</option>
+                    }
+                </select>
+                <div class="formlabel">Book Name</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="price" name="price" readonly>
+                <div class="formlabel">Price</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="available_quantity" name="available_quantity" readonly>
+                <div class="formlabel">Available Quantity</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="number" id="ordered_quantity" name="ordered_quantity" min="1"/>
+                <div class="formlabel">Ordered Quantity</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="total_price" name="total_price" readonly>
+                <div class="formlabel">Total Price</div>
+            </div>
+
+        </div>
+
+        <div class="submitcontainer">
+            <input class="formbutton" type="submit" value="Buy">
+        </div>
+    </div>
+</form>
+
+<script src="~/js/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#bookselect").change(function () {
+            var book_name = $(this).val();
+            $.ajax({
+                url: "@Url.Action("GetBookQuantity", "Buy")",
+                data: { book_name: book_name },
+                success: function (result) {
+                    $("#available_quantity").val(result);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#bookselect").change(function () {
+            var book_name = $(this).val();
+            $.ajax({
+                url: "@Url.Action("GetBookPrice", "Buy")",
+                data: { book_name: book_name },
+                success: function (result) {
+                    $("#price").val(result);
+                }
+            });
+        });
+    });
+
+    $(document).ready(function () {
+        $("#ordered_quantity").change(function () {
+            var quantity = $(this).val();
+            var book_name = $("#bookselect").val();
+            $.ajax({
+                url: "@Url.Action("GetBookTotalPrice", "Buy")",
+                data: { book_name: book_name, quantity: quantity },
+                success: function (result) {
+                    $("#total_price").val(result);
+                }
+            });
+        });
+    });
+</script>

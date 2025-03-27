@@ -1,0 +1,109 @@
+﻿@model IEnumerable<bibliotheque.Models.Book>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+@{
+    ViewData["Title"] = "Book List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1 style="color:white;">Book List</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.book_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.borrowable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.book_pic)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.book_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.author)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.borrowable)
+            </td>
+            <td>
+                    <img src="~/Img/@item.book_pic" style="border-radius:50%; width:40px;height:40px">
+
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.book_name">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.book_name">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.book_name">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color:white;
+    
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        color:white;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        background-color:white;
+    }
+
+
+
+    tr {
+        background-color: none;
+    }
+
+    caption {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color:white;
+    }
+</style>

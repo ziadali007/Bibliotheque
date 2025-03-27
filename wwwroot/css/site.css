@@ -1,0 +1,202 @@
+﻿/** SideBar **/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+
+
+.pagecontainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+
+body {
+    background-image: url("background.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    border-bottom: 4px solid #fff;
+    padding: 0.7em 0em;
+}
+
+.logo img {
+    width: 16em;
+    align-self: center;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 28em;
+    padding: 1em 0;
+    background-color: #834141;
+}
+
+.sidebar .sidebar-content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-between;
+    padding: 30px 16px;
+}
+
+
+.sidebar-content .list {
+    list-style: none;
+}
+
+.list .nav-link {
+    display: flex;
+    align-items: center;
+    margin: 2em 0.5em;
+    padding: 0.5em 0em;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.nav-link .link {
+    font-size: 2em;
+    color: white;
+    font-weight: 400;
+}
+
+.list:hover {
+    background-color: #fff;
+}
+
+.list .nav-link:hover .link {
+    color: #834141;
+}
+
+.bottom-content .nav-link {
+    margin: 0em 0.5em;
+}
+
+.main-content {
+    width: 100%;
+    padding: 3em;
+}
+
+.main-content .hometitle {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.main-content .hometitle img {
+    align-self: center;
+}
+
+/* Forms */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+}
+
+form {
+    height: 100%;
+}
+
+.mainformcontainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.inputwrap {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.inputcontainer {
+    margin: 0em 0em 1.3em 0em;
+}
+
+.inputcontainer .forminput {
+    height: 1em;
+    padding: 1em 1em;
+    background: none;
+    border: 0.1em solid #fff;
+    color: #fff;
+    font-size: 1.3em;
+    width: 100%;
+}
+
+.inputcontainer .formselect {
+    height: 2em;
+    padding-left: 1em;
+    background: none;
+    border: 0.1em solid #fff;
+    color: #fff;
+    font-size: 1.3em;
+    width: 100%;
+}
+
+.inputcontainer .formselect option {
+    background-color: dimgrey;
+}
+
+.inputcontainer .formlabel {
+    font-size: 1.1em;
+    margin: 0.3em 0em;
+    color: #fff;
+}
+
+.inputcontainer #CliHis {
+    height: 20em;
+}
+
+.inputcontainer #BookDesc {
+    height: 10em;
+}
+
+.submitcontainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: end;
+}
+
+.submitcontainer .formbutton {
+    padding: 1em;
+    background: none;
+    border: 0.1em solid #fff;
+    color: #fff;
+    font-size: 1.3em;
+    width: 10em;
+    align-self: flex-end;
+    background-color: #834141;
+    align-self: end;
+}
+
+.formbutton:hover {
+    background-color: #fff;
+    color: #834141;
+}

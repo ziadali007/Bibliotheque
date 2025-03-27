@@ -1,0 +1,76 @@
+﻿@model List<Book>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Borrow</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<form method="post" asp-controller="Borrow" asp-action="Borrow">
+
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+
+            <div class="inputcontainer">
+                <select class="formselect" name="book_name" id="bookselect">
+                    @foreach (var book in Model)
+                    {
+                        @if (book.borrowable == "Yes" || book.borrowable == "yes" || book.borrowable == "YES")
+                        {
+                            <option value="@book.book_name">@book.book_name</option>
+                        }
+                    }
+                </select>
+                <div class="formlabel">Book Name</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="available_quantity" name="available_quantity" readonly>
+                <div class="formlabel">Available Quantity</div>
+            </div>
+
+            <div class="inputcontainer" style="border: 0.15em solid #fff; padding:0.2em 1em ;">
+                <div class="formlabel">Fine Per Day :</div>
+                <div class="formlabel">10 L.E</div>
+
+            </div>
+
+            <div class="inputcontainer" style="border: 0.15em solid #fff; padding:0.2em 1em ;">
+                <div class="formlabel">Return Date : </div>
+                <div class="formlabel" id="date"></div>
+
+            </div>
+
+
+        </div>
+
+        <div class="submitcontainer">
+            <input type="submit" value="Borrow" class="formbutton">
+        </div>
+
+    </div>
+
+</form>
+<script src="~/js/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#bookselect").change(function () {
+        var book_name = $(this).val();
+        $.ajax({
+          url: "@Url.Action("GetBookQuantity", "Borrow")",
+          data: { book_name: book_name },
+          success: function(result) {
+          $("#available_quantity").val(result);
+          }
+        });
+      });
+    });
+
+
+    var nextWeek = new Date();
+    nextWeek.setDate(nextWeek.getDate() + 7);
+    var dateElement = document.getElementById("date");
+    dateElement.innerHTML = nextWeek.toDateString();
+</script>

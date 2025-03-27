@@ -1,0 +1,57 @@
+﻿@model bibliotheque.Models.Book
+
+
+@{
+    ViewData["Title"] = "create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>Create</h1>
+
+<h4>Book</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="book_name" class="control-label"></label>
+                <input asp-for="book_name" class="form-control" />
+                <span asp-validation-for="book_name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="author" class="control-label"></label>
+                <input asp-for="author" class="form-control" />
+                <span asp-validation-for="author" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantity" class="control-label"></label>
+                <input asp-for="quantity" class="form-control" />
+                <span asp-validation-for="quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="price" class="control-label"></label>
+                <input asp-for="price" class="form-control" />
+                <span asp-validation-for="price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="borrowable" class="control-label"></label>
+                <input asp-for="borrowable" class="form-control" />
+                <span asp-validation-for="borrowable" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="book_pic" class="control-label"></label>
+                <input asp-for="book_pic" class="form-control" type="file" name="book_pic" />
+                <span asp-validation-for="book_pic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

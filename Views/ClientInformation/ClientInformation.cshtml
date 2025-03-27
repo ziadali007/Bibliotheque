@@ -1,0 +1,50 @@
+﻿
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Information</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<form method="post" asp-action="MakeOperation" asp-controller="ClientInformation">
+
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="client_name" name="client_name" />
+                <div class="formlabel">Name</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="number" id="national_id" name="national_id" />
+                <div class="formlabel">National ID</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="tel" id="telephone" name="telephone" />
+                <div class="formlabel"> Telephone Number </div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="email" id="email_address" name="email_address" />
+                <div class="formlabel">Email Address</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="home_address" name="home_address" />
+                <div class="formlabel">Home Address</div>
+            </div>
+
+        </div>
+
+
+        <div class="submitcontainer">
+
+            <input class="formbutton" type="submit" value="OK">
+
+        </div>
+    </div>
+</form>
+

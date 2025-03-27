@@ -1,0 +1,57 @@
+﻿
+@{
+    Layout = null;
+}
+@model LoginModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up </title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<form method="post" asp-action="Login" asp-controller="Account">
+
+
+    <div class="mainformcontainer" style="padding: 5em">
+
+
+        <div class="inputwrap">
+            <div class="inputcontainer">
+                <h1 style="color:white">Login</h1>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="email" id="EmailAddress" name="EmailAddress" value="@Model.EmailAddress" />
+                <span asp-validation-for="EmailAddress" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Email Address</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="password" id="Password" name="Password" />
+                <span asp-validation-for="Password" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Password</div>
+            </div>
+
+
+        </div>
+
+
+        <div class="submitcontainer">
+
+            <input class="formbutton" type="submit" value="Login">
+            <input style="margin-top:1em;" asp-action="SignUp" class="formbutton" type="submit" value="Sign Up">
+
+
+        </div>
+
+    </div>
+</form>
+
+<style>
+    
+    .mainformcontainer{
+        padding:2em;
+    }
+
+</style>

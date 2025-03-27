@@ -1,0 +1,90 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+@model RegisterModel
+
+@*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up </title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+<form method="post" asp-action="Register" asp-controller="Account">
+
+
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+
+            <div class="inputcontainer">
+                <h1 style="color:white">Register</h1>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="fullName" name="fullName" value="@Model.fullName"/>
+                <span asp-validation-for="fullName" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Full Name</div>
+            </div>
+
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="nationalId" name="nationalId" value="@Model.nationalId" />
+                <span asp-validation-for="nationalId" class="text-danger" style="color:red"></span>
+                <div class="formlabel">National Id</div>
+            </div>
+
+
+            <div class="inputcontainer">
+                <input class="forminput" type="email" id="EmailAddress" name="EmailAddress" value="@Model.EmailAddress" />
+                <span asp-validation-for="EmailAddress" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Email Address</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="homeAddress" name="homeAddress" value="@Model.homeAddress" />
+                <span asp-validation-for="homeAddress" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Home Address</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="tel" id="telephone" name="telephone" value="@Model.telephone" />
+                <span asp-validation-for="telephone" class="text-danger" style="color:red"></span>
+                <div class="formlabel"> Telephone Number </div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="password" id="Password" name="Password" value="@Model.Password" />
+                <span asp-validation-for="Password" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Password</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="password" id="confirmPassword" name="confirmPassword" />
+                <span asp-validation-for="confirmPassword" class="text-danger" style="color:red"></span>
+                <div class="formlabel">Confirm Password</div>
+            </div>
+
+        </div>
+
+
+        <div class="submitcontainer">
+
+            <input class="formbutton" type="submit" value="Register">
+
+        </div>
+    </div>
+</form>
+
+<style>
+
+    .mainformcontainer {
+        padding: 2em;
+    }
+
+</style>

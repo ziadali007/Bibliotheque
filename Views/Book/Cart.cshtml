@@ -1,0 +1,145 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <title>User Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+@{
+    Layout = null;
+}
+@model List<Cart_biblio.Models.CartItem>
+
+<div style="padding:2em 0em">
+
+    <div style="display:flex; flex-direction:row; justify-content:flex-end; padding: 1em 4em;">
+        <div>
+            <a class="bot" asp-controller="Book" asp-action="Show" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Go to Books</span>
+            </a>
+            <a class="bot" asp-controller="Book" asp-action="Cart" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Go to cart</span>
+            </a>
+            <a class="bot" asp-controller="Book" asp-action="userHistory" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">User History</span>
+            </a>
+            <a class="bot" asp-controller="Account" asp-action="Logout" style="background-color:#834141; border:solid 2px white;">
+                <span class="link">Log-out</span>
+            </a>
+        </div>
+    </div>
+    <div class="container" style="padding: 3em 0em;">
+
+        @if (Model.Count <= 0)
+        {
+            <h1 style="color:red"> Your Cart is Empty</h1>
+        }
+        else
+        {
+            <div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Book Name
+                            </th>
+                            <th>
+                                Price
+                            </th>
+                            <th>
+                                Quantity
+                            </th>
+                            <th>
+                                Total Price
+                            </th>
+                            <th>
+                                Remove this item
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.book_name
+                                </td>
+                                <td>
+                                    @{
+                                        var price = item.totalPrice / item.Quantity;
+                                    }
+                                    @price
+                                </td>
+                                <td>
+                                    @item.Quantity
+                                </td>
+                                <td>
+                                    @item.totalPrice
+                                </td>
+                                <td>
+                                    <a asp-action="RemoveCart" asp-controller="Book" asp-route-id="@item.book_name">Remove</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <a asp-controller="Book" asp-action="CheckOut" class="nav-link" style="background-color:#834141; border:solid 2px white; margin:1em 0em">
+                <span class="link">Check Out</span>
+            </a>
+        }
+
+    </div>
+</div>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            color: white;
+        }
+
+        th {
+            font-weight: bold;
+            font-size: 16px;
+            color: white;
+        }
+
+
+
+        tr {
+            background-color: none;
+        }
+
+        caption {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+    .bot {
+        padding: 1em 2em;
+        color: white;
+        margin: 0em 1em;
+        text-decoration: none;
+    }
+    </style>
+

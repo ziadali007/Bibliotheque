@@ -1,0 +1,130 @@
+﻿@{
+    Layout = null;
+    var booklist = ViewBag.booklist as List<Book>;
+
+}
+@model LoginModel
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bibliotheque || Home Page</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+
+@{
+}
+
+<div style="padding: 2em 3em">
+
+    <a asp-controller="Account" asp-action="Logout" class="nav-link" style="background-color:#834141">
+        <span class="link">Log-out</span>
+    </a>
+
+    <h1 style="color:white;">Available Books in out Library || Please Contact us for more information</h1>
+    <h6 style="color:white;">Email : bibliotheque@gmail.com</h6>
+    <h6 style="color:white;">Phone number : 01203466538</h6>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Book Name
+                </th>
+                <th>
+                    Author
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    Price
+                </th>
+                <th>
+                    Book Image
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in booklist)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.book_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    <td>
+                        <img src="~/Img/@item.book_pic" style=" width:6em;height:10em">
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+  
+
+</div>
+
+
+<style>
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+        color: white;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        color: white;
+    }
+
+    td{
+        align-self: center;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        background-color: white;
+    }
+
+
+
+    tr {
+        
+        background-color: none;
+    }
+
+    caption {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: white;
+    }
+</style>
+
+
+<style>
+
+
+</style>

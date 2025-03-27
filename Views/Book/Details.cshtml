@@ -1,0 +1,69 @@
+﻿@model bibliotheque.Models.Book
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
+</head>
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt style="color : white;" class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book_name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book_name)
+        </dd>
+       
+        <div>
+            <dd class="col-sm-10">
+                <img src="~/Img/@Model.book_pic" style="width:17em;height:25em">
+            </dd>
+        </div>
+        <dt style="color : white;" class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.author)
+        </dt>
+        <dd style="color : white;" class="col-sm-10">
+            @Html.DisplayFor(model => model.author)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.borrowable)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.borrowable)
+        </dd>
+        
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.book_name">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<style>
+
+    dd, dt{
+        font-size:1.3em;
+    }
+
+    dd, dt{
+      color:white;
+     
+    }
+</style>

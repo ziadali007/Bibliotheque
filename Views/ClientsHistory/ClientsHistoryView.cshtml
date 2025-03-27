@@ -1,0 +1,228 @@
+﻿@using System;
+@model IEnumerable<bibliotheque.Models.Operation>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clients History</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+@{
+   // var client = ViewBag.try_client as List<Client>;
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Client Name
+            </th>
+            <th>
+                National ID
+            </th>
+            <th>
+                Book Name
+            </th>
+            <th>
+                Operation Type
+            </th>
+            <th>
+                Operation Date
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            string cat = ViewBag.MyString;
+
+            if (cat == "All")
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Client.client_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.national_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.book_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.date.Day)
+                            <span>/</span>
+                            @Html.DisplayFor(modelItem => item.date.Month)
+                            <span>/</span>
+                            @Html.DisplayFor(modelItem => item.date.Year)
+                        </td>
+                    </tr>
+                }
+            }
+            else if (cat == "Return")
+            {
+                // @foreach (var item in Model && var item2 in client)
+                @foreach (var item in Model)
+                {
+
+                    if (item.type == "return")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Client.client_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.national_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.book_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date.Day)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Month)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Year)
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else if (cat == "Buy Online")
+            {
+                @foreach (var item in Model)
+                {
+                    if (item.type == "buy_online")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Client.client_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.national_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.book_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date.Day)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Month)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Year)
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else if (cat == "Borrow")
+            {
+                @foreach (var item in Model)
+                {
+                    if (item.type == "borrow" || item.type == "borrowed")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Client.client_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.national_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.book_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date.Day)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Month)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Year)
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    if (item.type == "buy")
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Client.client_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.national_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.book_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.type)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.date.Day)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Month)
+                                <span>/</span>
+                                @Html.DisplayFor(modelItem => item.date.Year)
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+
+        }
+    </tbody>
+</table>
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        color: white;
+    }
+
+    th {
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+    }
+
+
+
+    tr {
+        background-color: none;
+    }
+
+    caption {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: white;
+    }
+</style>
+
+

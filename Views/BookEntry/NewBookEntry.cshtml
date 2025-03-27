@@ -1,0 +1,52 @@
+﻿<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Book Entry</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+@model Book
+<form method="post" asp-action="NewBookEntry" asp-controller="BookEntry" enctype="multipart/form-data">
+    <div class="mainformcontainer">
+
+        <div class="inputwrap">
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="book_name" name="book_name" value="@Model.book_name"/>
+                <div class="formlabel">Book Name</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="author" name="author" value="@Model.author" />
+                <div class="formlabel">Author</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="number" id="quantity" name="quantity" min="1" value="@Model.quantity" />
+                <div class="formlabel">Book Quantity</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="number" id="price" name="price"min="1" value="@Model.price" />
+                <div class="formlabel">Book Price</div>
+            </div>
+
+            <div class="inputcontainer">
+                <input class="forminput" type="text" id="borrowable" name="borrowable" value="@Model.borrowable" />
+                <div class="formlabel">Borrowable</div>
+            </div>
+
+
+            <div class="inputcontainer">
+                <input type="file" id="book_pic" name="book_pic" accept="image/*" value="@Model.book_pic" />
+                <div class="formlabel">Book Image</div>
+            </div>
+
+
+        </div>
+
+
+        <div class="submitcontainer">
+            <input class="formbutton" type="submit" value="OK">
+        </div>
+
+    </div>
+</form>
